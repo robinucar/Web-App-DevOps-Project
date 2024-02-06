@@ -65,3 +65,14 @@ This project is licensed under the MIT License. For more details, refer to the [
 
 1. _delivery-date column:_ delivery_date added to both backend (app.py) and frontend (order.html) files.
 2. _removed delivery-date column:_ delivery_date removed from both backend (app.py) and frontend (order.html) files.
+
+### Containerization
+
+1. Dockerfile created based on python:3.8-slim
+2. Docker image builded.
+   **imagename:** web-app-image
+   **imagetag:** 1.0
+3. Image pushed to Docker Hub
+
+- Image can be seen from the link below
+- https://hub.docker.com/repository/docker/robinwinters/web-app-image/general
