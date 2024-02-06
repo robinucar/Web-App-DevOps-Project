@@ -1,9 +1,9 @@
 # TODO: Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
 FROM python:3.8-slim
 # TODO: Step 2 - Set the working directory in the container
-WORKDIR /app.py
+WORKDIR /app
 # TODO: Step 3 Copy the application files in the container
-COPY . /app
+COPY . .
 # Install system dependencies and ODBC driver
 RUN apt-get update && apt-get install -y \
   unixodbc unixodbc-dev odbcinst odbcinst1debian2 libpq-dev gcc && \
