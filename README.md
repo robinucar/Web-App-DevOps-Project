@@ -62,3 +62,6 @@ To run the application, you simply need to run the `app.py` script in this repos
 This project is licensed under the MIT License. For more details, refer to the [LICENSE](LICENSE) file.
 
 ## Robin Winters Azure End-to-End DevOps Pipeline Project
+
+1. _delivery-date column:_ delivery_date added to both backend (app.py) and frontend (order.html) files.
+2. _removed delivery-date column:_ delivery_date removed from both backend (app.py) and frontend (order.html) files.
