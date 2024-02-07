@@ -76,3 +76,49 @@ This project is licensed under the MIT License. For more details, refer to the [
 
 - Image can be seen from the link below
 - https://hub.docker.com/repository/docker/robinwinters/web-app-image/general
+
+### Networking Services Deployment with Terraform
+
+#### Overview
+
+This repository contains Terraform configurations for deploying networking resources in Azure, including a Virtual Network (VNet), subnets, and Network Security Groups (NSGs). This README provides an overview of the networking services deployed using Infrastructure as Code (IaC) with Terraform.
+
+#### Prerequisites
+
+Before running the Terraform configurations, ensure you have the following prerequisites set up:
+
+Azure subscription
+Azure CLI installed and configured
+Terraform CLI installed
+
+#### Terraform Configuration
+
+1. Input Variables
+
+   - resource_group_name: The name of the Azure resource group where networking resources will be created.
+   - location: The Azure region where networking resources will be deployed.
+   - vnet_address_space: The address space for the Virtual Network (VNet).
+
+2. Networking Resources
+
+   - Azure Resource Group
+   - Virtual Network (VNet)
+   - Subnets
+   - Network Security Group (NSG)
+
+3. Output Variables
+   - vnet_id: ID of the Virtual Network (VNet).
+   - control_plane_subnet_id: ID of the control plane subnet.
+   - worker_node_subnet_id: ID of the worker node subnet.
+   - resource_group_name: Name of the Azure Resource Group for networking resources.
+   - aks_nsg_id: ID of the Network Security Group (NSG) for AKS.
+
+#### Usage
+
+1. Clone Repository: Clone this repository to your local machine.
+2. Set Terraform Variables: Update the variables.tf file with your desired values for input variables.
+3. Initialize Terraform: Run terraform init to initialize the Terraform configuration.
+4. Review Execution Plan: Run terraform plan to review the execution plan and ensure it matches your expectations.
+5. Apply Terraform Changes: Run terraform apply to apply the Terraform changes and deploy networking resources to Azure.
+
+- \*\*git can only support files of a certain size & that the .terraform is larger so has to be avoided
