@@ -122,3 +122,48 @@ Terraform CLI installed
 5. Apply Terraform Changes: Run terraform apply to apply the Terraform changes and deploy networking resources to Azure.
 
 - \*\*git can only support files of a certain size & that the .terraform is larger so has to be avoided
+
+### AKS Cluster steps with Terraform
+
+1. Clone the repository
+
+```
+git clone https://github.com/robinucar/Web-App-DevOps-Project.git
+cd Web-App-Devops-Project
+cd aks-terraform
+cd aks-cluster-module
+
+```
+
+2. Define Input Variables:
+
+   - aks_cluster_name: The name of the AKS cluster.
+   - cluster_location: The Azure region where the AKS cluster will be created.
+   - dns_prefix: DNS prefix for the AKS cluster.
+   - kubernetes_version: The version of Kubernetes to be used.
+   - service_principal_client_id: Client ID of the service principal used for authentication.
+   - service_principal_client_secret: Client Secret associated with the service principal.
+   - resource_group_name: Name of the Azure Resource Group for networking resources.
+   - vnet_id: ID of the Virtual Network (VNet).
+   - control_plane_subnet_id: ID of the control plane subnet.
+   - worker_node_subnet_id: ID of the worker node subnet.
+
+3. Define AKS Cluster Configuration:
+
+   - Update the main.tf file to define the AKS cluster configuration using the azurerm_kubernetes_cluster resource block. Specify the desired configuration options such as name, location, DNS prefix, Kubernetes version, and service principal details.
+
+4. Define Output Variables:
+   Update the output.tf file to define output variables for the AKS cluster. The output variables include:
+
+   - aks_cluster_name: Name of the AKS cluster.
+   - aks_cluster_id: ID of the AKS cluster.
+   - aks_kubeconfig: Kubeconfig file for accessing the AKS cluster.
+
+5. Initialize Terraform:
+
+   - Run the following command to initialize Terraform and download the required provider plugins:
+
+   ```
+   terraform init
+
+   ```
