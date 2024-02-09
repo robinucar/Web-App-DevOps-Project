@@ -167,3 +167,45 @@ cd aks-cluster-module
    terraform init
 
    ```
+
+### WEB-APP-DEVOPS-PROJECT Terraform Azure Aks Cluster Deployment
+
+This project automates the deployment of an Azure Kubernetes Service (AKS) cluster using Terraform. It sets up networking resources and provisions an AKS cluster on Microsoft Azure.
+
+#### Prerequisites
+
+Before you begin, make sure you have the following prerequisites installed:
+
+- [Terraform](https://www.terraform.io/downloads.html)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+You also need an Azure subscription and Service Principal credentials to authenticate with Azure.
+
+## Project Structure
+
+The project structure is organized as follows:
+
+- `main.tf`: The main Terraform configuration file that orchestrates the deployment of resources.
+- `variables.tf`: Defines input variables used in the main configuration file.
+- `networking-module/`: Directory containing the Terraform module for networking resources.
+- `aks-cluster-module/`: Directory containing the Terraform module for AKS cluster provisioning.
+- `output.tf`: Defines output variables to retrieve information after deployment.
+
+## Configuration
+
+### Provider Setup
+
+The `main.tf` file configures the `azurerm` provider to interact with Azure APIs. Replace `var.client_id` and `var.client_secret` with your Azure Service Principal credentials.
+
+```hcl
+provider "azurerm" {
+  features {}
+
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  subscription_id = "<subscription_id>"
+  tenant_id       = "<tenant_id>"
+}
+
+
+```
