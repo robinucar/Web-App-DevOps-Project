@@ -209,3 +209,27 @@ provider "azurerm" {
 
 
 ```
+
+### WEB-APP-DEVOPS-PROJECT Kubernetes Deployment
+
+This repository contains detailed documentation for the deployment of a containerized web application onto an Azure Kubernetes Service (AKS) cluster using Kubernetes manifests. Below, we outline the key stages of the deployment process and provide insights into the configuration settings, deployment strategy, testing, validation, and distribution plan for the application.
+
+#### Deployment and Service Manifests
+
+1. Deployment Manifest:
+   - The Deployment manifest (application-manifest.yaml) defines a Kubernetes Deployment named flask-app-deployment for the containerized web application.
+   - Key concepts and configuration settings include:
+     - Specifying two replicas for scalability and high availability.
+     - Using labels (e.g., app: flask-app) to match pods and ensure efficient traffic routing.
+     - Configuring the container image (robinwinters/web-app-image:1.0) and exposing port 5000 for communication.
+     - Implementing a RollingUpdate deployment strategy to ensure seamless application updates.
+2. Service Manifest:
+   - The Service manifest within the same file defines a Kubernetes Service named flask-app-service to facilitate internal communication within the AKS cluster.
+   - Key configuration settings include:
+     - Matching the selector with the labels of the Deployment pods.
+     - Using the ClusterIP type and TCP protocol on port 80 to communicate with the pods.
+     - Setting the targetPort to 5000 to access the application's user interface.
+
+#### Deployment Strategy
+
+The chosen deployment strategy is RollingUpdate. This strategy was selected for its ability to update the application with zero downtime by gradually replacing old pods with new ones. It aligns with the application's requirements for continuous availability and reliability, ensuring seamless updates without impacting user experience.
