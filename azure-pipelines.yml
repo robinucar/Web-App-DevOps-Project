@@ -1,21 +1,4 @@
 # Starter pipeline
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub-AuthToken'
-    repository: 'push robinwinters/web-app-image'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub-AuthToken'
-    repository: 'robinwinters/web-app-image'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: '1.0'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -23,6 +6,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub-AuthToken'
+    repository: 'robinwinters/web-app-image'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      1.0
+      latest
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
