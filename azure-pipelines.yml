@@ -2,7 +2,14 @@
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHub-AuthToken'
-    repository: 'push robinwinters/web-app-image:1.0'
+    repository: 'push robinwinters/web-app-image'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub-AuthToken'
+    repository: 'robinwinters/web-app-image'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: '1.0'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
