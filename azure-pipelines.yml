@@ -1,4 +1,10 @@
 # Starter pipeline
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'DevOps-AKS-Integration'
+    manifests: 'application-manifest.yaml'
 trigger:
 - main
 
