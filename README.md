@@ -233,3 +233,90 @@ This repository contains detailed documentation for the deployment of a containe
 #### Deployment Strategy
 
 The chosen deployment strategy is RollingUpdate. This strategy was selected for its ability to update the application with zero downtime by gradually replacing old pods with new ones. It aligns with the application's requirements for continuous availability and reliability, ensuring seamless updates without impacting user experience.
+
+### CI/CD Pipeline Documentation
+
+This section provides comprehensive information about the CI/CD pipeline configured in Azure DevOps for this project.
+
+#### Configuration and Settings
+
+- Source Repository:
+  The source code for this project is hosted on GitHub. The repository contains the application code along with the necessary configuration files for the CI/CD pipeline.
+
+- Build Pipeline (Starter Pipeline):
+  The CI/CD pipeline is configured using the Starter Pipeline template provided by Azure DevOps. This simple pipeline is a foundation for further customization and includes basic build and test stages. It automatically triggers on each push to the main branch of the GitHub repository.
+
+- Integration with Docker Hub:
+  The CI/CD pipeline is integrated with Docker Hub for container image management. A Docker service connection is configured in Azure DevOps to facilitate seamless integration with Docker Hub's container registry. To integrate the CI/CD pipeline with Docker Hub, follow these steps:
+
+  1. Create Docker Hub Personal Access Token:
+
+     - Generate a Personal Access Token (PAT) in Docker Hub with the necessary permissions to push Docker images.
+
+  2. Create Docker Service Connection in Azure DevOps
+
+     - Navigate to Project Settings > Service connections in Azure DevOps.
+     - Click on "New service connection" and choose "Docker Registry".
+     - Enter your Docker Hub credentials and the Personal Access Token created earlier.
+
+  3. Update Pipeline YAML:
+     - Add tasks to your pipeline YAML file to build and push Docker images to Docker Hub as part of the build process.
+
+- Integration with AKS:
+  While the Starter Pipeline does not include specific deployment steps to AKS, it can be extended to incorporate deployment tasks using Azure Kubernetes Service (AKS) in subsequent iterations. To integrate the CI/CD pipeline with Azure Kubernetes Service (AKS), follow these steps:
+
+  1. Create AKS Service Connection in Azure DevOps
+
+     - Navigate to Project Settings > Service connections in Azure DevOps.
+     - Click on "New service connection" and choose "Kubernetes".
+     - Provide the necessary details such as AKS cluster name, resource group, and authentication method.
+
+  2. Update Pipeline YAML:
+
+     - Add tasks to your pipeline YAML file to deploy the application to AKS using kubectl commands or Azure DevOps deployment tasks.
+
+- Validation Steps:
+
+  Since the Starter Pipeline focuses on basic build and test stages, the validation steps primarily involve testing the functionality of the application locally and ensuring that the build process completes successfully.
+
+- Testing Functionality:
+
+  - Local Testing: Before pushing changes to the main branch, local testing is performed to ensure that the application functions as expected.
+
+  - Build Verification: Upon triggering the CI/CD pipeline, the build process verifies that the application code compiles successfully and any automated tests included in the pipeline pass.
+
+### Monitoring Strategy for AKS Cluster
+
+This section outlines the comprehensive monitoring strategy implemented for the Azure Kubernetes Service (AKS) cluster used in this project.
+
+#### Metrics Explorer Charts
+
+1. Average Node CPU and Memory Usage
+
+- Tracks CPU and memory usage to optimize resource allocation.
+  ![Average Node CPU Usage Percentage](/assests/Avg_CPU.png)
+
+2. Pods Counts with Phase
+
+- Monitors pod lifecycle management and workload distribution.
+  ![Average Number of Pods by Phase](assests/number_of_pods.png)
+
+3. Average Used Disk Percentage
+
+- Tracks disk usage to prevent storage-related issues.
+  ![Average Used Disk Percentage](assests/Avg_Used_Disk_Percentage.png)
+
+4. Sum of Total Bytes Read and Written per Minute
+
+- Monitors data I/O for identifying performance bottlenecks.
+
+  ![Sum Total Bytes Read](assests/Sum_Total_bytes_read.png)
+  ![Sum Total Bytes Written](assests/Sum_Total_bytes_written.png)
+
+#### Log Analytics Logs
+
+- Node CPU and memory usage, pod counts, disk usage, data I/O, container logs, and Kubernetes events are analyzed through Log Analytics.
+
+#### Alarm Configurations
+
+- Threshold alarms set for CPU and memory usage, disk usage, data I/O, container logs, and Kubernetes events.
