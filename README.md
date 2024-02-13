@@ -300,3 +300,23 @@ This section outlines the comprehensive monitoring strategy implemented for the 
 
 - Monitors pod lifecycle management and workload distribution.
   ![Average Number of Pods by Phase](assests/number_of_pods.png)
+
+3. Average Used Disk Percentage
+
+- Tracks disk usage to prevent storage-related issues.
+  ![Average Used Disk Percentage](assests/Avg_Used_Disk_Percentage.png)
+
+4. Sum of Total Bytes Read and Written per Minute
+
+- Monitors data I/O for identifying performance bottlenecks.
+
+  ![Sum Total Bytes Read](assests/Sum_Total_bytes_read.png)
+  ![Sum Total Bytes Written](assests/Sum_Total_bytes_written.png)
+
+#### Log Analytics Logs
+
+- Node CPU and memory usage, pod counts, disk usage, data I/O, container logs, and Kubernetes events are analyzed through Log Analytics.
+
+#### Alarm Configurations
+
+- Threshold alarms set for CPU and memory usage, disk usage, data I/O, container logs, and Kubernetes events.
