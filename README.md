@@ -284,3 +284,19 @@ This section provides comprehensive information about the CI/CD pipeline configu
   - Local Testing: Before pushing changes to the main branch, local testing is performed to ensure that the application functions as expected.
 
   - Build Verification: Upon triggering the CI/CD pipeline, the build process verifies that the application code compiles successfully and any automated tests included in the pipeline pass.
+
+### Monitoring Strategy for AKS Cluster
+
+This section outlines the comprehensive monitoring strategy implemented for the Azure Kubernetes Service (AKS) cluster used in this project.
+
+#### Metrics Explorer Charts
+
+1. Average Node CPU and Memory Usage
+
+- Tracks CPU and memory usage to optimize resource allocation.
+  ![Average Node CPU Usage Percentage](/assests/Avg_CPU.png)
+
+2. Pods Counts with Phase
+
+- Monitors pod lifecycle management and workload distribution.
+  ![Average Number of Pods by Phase](assests/number_of_pods.png)
