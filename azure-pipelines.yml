@@ -22,3 +22,4 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'DevOps-AKS-Integration'
     manifests: 'application-manifest.yaml'
+
