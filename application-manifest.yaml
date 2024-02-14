@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app-container
-        image: robinwinters/web-app-image:1.0
+        image: robinwinters/web-app-image:latest
         ports:
         - containerPort: 5000
   strategy:
