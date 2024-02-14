@@ -320,3 +320,16 @@ This section outlines the comprehensive monitoring strategy implemented for the 
 #### Alarm Configurations
 
 - Threshold alarms set for CPU and memory usage, disk usage, data I/O, container logs, and Kubernetes events.
+
+### Integration of Azure Key Vault Secrets
+
+This repository contains a Flask web application that has been updated to integrate with Azure Key Vault for securely retrieving database connection settings. Previously, the application relied on hard-coded database settings, but this has been replaced with Azure Key Vault secrets for improved security and manageability.
+
+#### Changes Made
+
+1. Azure Key Vault Integration:
+
+- The application now uses the ManagedIdentityCredential class from the azure.identity library to authenticate with Azure Managed Identity.
+- The SecretClient class from the azure.keyvault.secrets library is used to interact with Azure Key Vault.
+- Azure Key Vault URL and secrets (server name, database name, username, password) are retrieved from environment variables or configuration files.
+- The retrieved secrets are used to establish a database connection.
